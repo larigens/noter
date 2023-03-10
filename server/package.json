@@ -1,0 +1,27 @@
+{
+    "name": "noter",
+    "version": "1.0.0",
+    "description": "create notes or code snippets with or without an internet connection",
+    "main": "server.js",
+    "scripts": {
+        "server": "nodemon server.js --ignore client"
+    },
+    "keywords": [
+        "pwa",
+        "nodejs",
+        "webpack",
+        "webpack-dev-serve",
+        "webpack-cli",
+        "style-loader",
+        "css-loader",
+        "html-webpack-plugin"
+    ],
+    "author": "Larissa Guilherme",
+    "license": "Apache-2.0",
+    "dependencies": {
+        "express": "^4.17.1"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.4"
+    }
+}
