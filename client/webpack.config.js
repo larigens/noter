@@ -28,7 +28,7 @@ module.exports = () => {
       // Adds a service worker to the build using a source and destination file.
       new InjectManifest({
         swSrc: './src-sw.js', // Source file.
-        swDest: 'service-worker.js', // Output file for the service worker.
+        swDest: 'src-sw.js', // Output file for the service worker.
         // Specifies which files should be included in the service worker cache.
         include: [/\.html$/, /\.js$/, /\.css$/, /\.png$/, /\.svg$/, /\.jpg$/, /\.jpeg$/, /\.gif$/]
       }),
@@ -37,6 +37,7 @@ module.exports = () => {
         // filename specifies the output filename for the generated manifest file. Default: 'manifest.json'.
         // inject - manifest should be automatically injected into the HTML file(s) generated. Default: 'true'.
         fingerprints: false, // A unique hash is generated based on the file's contents - set to false to not do that.
+        inject: true,
         name: 'Noter',
         short_name: 'Noter',
         description: 'A notepad app for coders',
