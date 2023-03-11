@@ -10,7 +10,6 @@ const MAX_AGE_SECONDS = 30 * 24 * 60 * 60; // Expires in 30d.
 const OFFLINE_FILE = '/offline.html';
 const OFFLINE_FALLBACKS = 'offline-fallbacks';
 
-// Needs to have self.__WB_MANIFEST string in it so that injectManifest can replace it with the precache manifest.
 precacheAndRoute(self.__WB_MANIFEST); // Contains a list of URLs to precache during the service worker's installation phase.
 
 const cacheStrategy = {

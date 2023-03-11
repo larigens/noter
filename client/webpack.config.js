@@ -1,10 +1,10 @@
 // Imports webpack plugins.
-import HtmlWebpackPlugin from 'html-webpack-plugin';
-import WebpackPwaManifest from 'webpack-pwa-manifest';
-import { InjectManifest } from 'workbox-webpack-plugin';
-import path from 'path';
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const WebpackPwaManifest = require('webpack-pwa-manifest');
+const path = require('path');
+const { InjectManifest } = require('workbox-webpack-plugin');
 
-export default () => {
+module.exports = () => {
   return {
     mode: 'development',
     entry: {

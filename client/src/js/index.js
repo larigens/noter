@@ -11,9 +11,9 @@ const loadSpinner = () => {
   const spinner = document.createElement('div');
   spinner.classList.add('spinner');
   spinner.innerHTML = `
-    <div class="loading-container">
-      <div class="loading-spinner"></div>
-    </div>
+  <div class="loading-container">
+  <div class="loading-spinner" />
+  </div>
   `;
   main.appendChild(spinner);
 };
@@ -22,7 +22,9 @@ const loadSpinner = () => {
 const editor = new Editor();
 
 // Checks if editor exists, if it does not, then calls loadSpinner().
-!editor ? loadSpinner() : null;
+if (!editor) {
+  loadSpinner()
+}
 
 // Checks if service workers are supported.
 ('serviceWorker' in navigator) ?
