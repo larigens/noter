@@ -38,15 +38,18 @@ registerRoute(({ request }) => request.mode === 'navigate', pageCache);
 // Cache dynamic assets during runtime.
 registerRoute(({ request }) => ['style', 'script', 'worker'].includes(request.destination), pageCache);
 
-// Respond with an offline fallback response when a requested resource is not found in the cache and the user is offline.
+// Sets a catch handler to be used by Workbox when a fetch request fails to resolve.
 setCatchHandler(async ({ request, event }) => {
-  const cache = await caches.open(OFFLINE_FALLBACKS);
+  const cache = await caches.open(OFFLINE_FALLBACKS); // Creates a new cache instance called 'offline-fallbacks' for caching offline fallback responses.
   try {
+    // Attempts to handle the request using the apiCache network-first strategy.
     const response = await apiCache.handle({ request, event });
+    // If the response status is equal or greater than 400, rejects the promise with an error message.
     return response.status >= 400 ? Promise.reject(`Unexpected HTTP status: ${response.status}`) : response;
   } catch {
+    // If there's an error, attempts to get the cached response for the offline fallback page.
     const cachedResponse = await cache.match(OFFLINE_FILE);
-    return cachedResponse;
+    return cachedResponse; // Returns the cached response if it exists, otherwise returns undefined.
   }
 });
 
@@ -54,3 +57,5 @@ setCatchHandler(async ({ request, event }) => {
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(OFFLINE_FALLBACKS).then(cache => cache.addAll([OFFLINE_FILE])));
 });
+
+export { CACHE_NAME, OFFLINE_FILE };
