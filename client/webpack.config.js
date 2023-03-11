@@ -23,7 +23,7 @@ module.exports = () => {
       }),
       // Adds a service worker to the build using a source and destination file.
       new InjectManifest({
-        swSrc: './src/src-sw.js', // Source file.
+        swSrc: './src-sw.js', // Source file.
         swDest: 'src-sw.js', // Output file for the service worker.
         // Specifies which files should be included in the service worker cache.
         include: [/\.html$/, /\.js$/, /\.css$/, /\.png$/, /\.svg$/, /\.jpg$/, /\.jpeg$/, /\.gif$/]
@@ -38,7 +38,7 @@ module.exports = () => {
         start_url: '/',
         publicPath: '/',  // Specifies the public path of the output directory. 
         background_color: '#ffffff',
-        theme_color: '#81D4F',
+        theme_color: '#81D4FA',
         ios: true, // Generates Apple Touch icons for iOS devices. - Already have default sizes.
         icons: [ // icon to be generated.
           {
