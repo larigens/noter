@@ -1,15 +1,18 @@
 // Imports webpack plugins.
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const WebpackPwaManifest = require('webpack-pwa-manifest');
-const { InjectManifest } = require('workbox-webpack-plugin');
-const path = require('path');
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import WebpackPwaManifest from 'webpack-pwa-manifest';
+import { InjectManifest } from 'workbox-webpack-plugin';
+import path from 'path';
 
-module.exports = () => {
+export default () => {
   return {
     mode: 'development',
     entry: {
       main: './src/js/index.js',
-      install: './src/js/install.js'
+      install: './src/js/install.js',
+      database: './src/js/database.js',
+      editor: './src/js/editor.js',
+      header: './src/js/header.js'
     },
     output: {
       filename: '[name].bundle.js',
@@ -19,12 +22,13 @@ module.exports = () => {
       // Generates an HTML file that includes a script tag for the main bundle.
       new HtmlWebpackPlugin({
         title: 'Noter',
+        offline: 'Noter - Offline',
         template: './index.html',
       }),
       // Adds a service worker to the build using a source and destination file.
       new InjectManifest({
         swSrc: './src-sw.js', // Source file.
-        swDest: 'src-sw.js', // Output file for the service worker.
+        swDest: 'service-worker.js', // Output file for the service worker.
         // Specifies which files should be included in the service worker cache.
         include: [/\.html$/, /\.js$/, /\.css$/, /\.png$/, /\.svg$/, /\.jpg$/, /\.jpeg$/, /\.gif$/]
       }),
@@ -32,6 +36,7 @@ module.exports = () => {
       new WebpackPwaManifest({
         // filename specifies the output filename for the generated manifest file. Default: 'manifest.json'.
         // inject - manifest should be automatically injected into the HTML file(s) generated. Default: 'true'.
+        fingerprints: false, // A unique hash is generated based on the file's contents - set to false to not do that.
         name: 'Noter',
         short_name: 'Noter',
         description: 'A notepad app for coders',
@@ -53,14 +58,9 @@ module.exports = () => {
     module: {
       rules: [
         {
-          // CSS loaders
+          // CSS loaders.
           test: /\.css$/,
           use: ['style-loader', 'css-loader'],
-        },
-        {
-          // Load images
-          test: /\.(png|svg|jpg|jpeg|gif)$/i,
-          type: 'asset/resource',
         },
         {
           // Babel loader to use ES6.

@@ -20,6 +20,21 @@ h1 {
   font-size: 22px;
 }
 
+.offline {
+  margin-top: 64px;
+  font-size: 32px;
+}
+
+.offline,
+.offline-p {
+  text-align: center;
+}
+
+.offline-p {
+  margin-top: 32px;
+  font-size: 24px;
+}
+
 #navbar {
   height: var(--navbar-height);
   background-color: var(--primary);
