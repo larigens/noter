@@ -33,18 +33,17 @@ module.exports = () => {
         // filename specifies the output filename for the generated manifest file. Default: 'manifest.json'.
         fingerprints: false, // A unique hash is generated based on the file's contents - set to false to not do that.
         inject: true,
-        name: 'Noter',
+        name: 'Noter - The coders notepad',
         short_name: 'Noter',
         description: 'A notepad app for coders',
         start_url: '/',
         publicPath: '/',  // Specifies the public path of the output directory. 
         background_color: '#ffffff',
         theme_color: '#81D4FA',
-        ios: true, // Generates Apple Touch icons for iOS devices. - Already have default sizes.
         icons: [ // icon to be generated.
           {
             src: path.resolve('src/images/logo.png'), // The path to the image.
-            sizes: [72, 96, 128, 144, 192, 256, 384, 512], // Sizes of the icon.
+            sizes: [96, 128, 192, 512], // Sizes of the icon.
             type: 'image/png',
             destination: path.join('assets', 'icons'), // The destination directory where the generated icons will be saved.
           },
