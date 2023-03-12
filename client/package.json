@@ -10,7 +10,7 @@
     "pwa",
     "nodejs",
     "webpack",
-    "webpack-dev-serve",
+    "webpack-dev-server",
     "webpack-cli",
     "style-loader",
     "css-loader",
