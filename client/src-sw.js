@@ -1,14 +1,13 @@
-import { offlineFallback, warmStrategyCache } from 'workbox-recipes';
-import { CacheFirst, StaleWhileRevalidate } from 'workbox-strategies';
-import { registerRoute } from 'workbox-routing';
-import { CacheableResponsePlugin } from 'workbox-cacheable-response';
-import { ExpirationPlugin } from 'workbox-expiration';
-import { precacheAndRoute } from 'workbox-precaching';
+const { offlineFallback, warmStrategyCache } = require('workbox-recipes');
+const { CacheFirst, StaleWhileRevalidate } = require('workbox-strategies');
+const { registerRoute } = require('workbox-routing');
+const { CacheableResponsePlugin } = require('workbox-cacheable-response');
+const { ExpirationPlugin } = require('workbox-expiration');
+const { precacheAndRoute } = require('workbox-precaching/precacheAndRoute');
 
 const PAGE_CACHE = 'page-cache';
 const ASSET_CACHE = 'asset-cache';
 const MAX_AGE_SECONDS = 30 * 24 * 60 * 60; // Expires in 30d.
-const URLs = ['/index.html', '/'];
 
 precacheAndRoute(self.__WB_MANIFEST); // Contains a list of URLs to precache during the service worker's installation phase.
 
@@ -22,7 +21,10 @@ const pageCache = new CacheFirst({
 });
 
 // Prefetch and cache content in advance to improve performance when online.
-warmStrategyCache({ urls: URLs, strategy: pageCache });
+warmStrategyCache({
+  urls: ['/index.html', '/'],
+  strategy: pageCache,
+});
 
 // Cache page navigations (HTML) with a CacheFirst strategy.
 registerRoute(({ request }) => request.mode === 'navigate', pageCache);

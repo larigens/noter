@@ -2,8 +2,7 @@
 import { getDb, putDb } from './database';
 import { header } from './header';
 
-// The class is now named Editor (instead of being anonymous).
-export default class Editor {
+export default class {
   constructor() {
     const localData = localStorage.getItem('content');
 
@@ -12,7 +11,6 @@ export default class Editor {
       throw new Error('CodeMirror is not loaded');
     }
 
-    // Create a new CodeMirror instance.
     this.editor = CodeMirror(document.querySelector('#main'), {
       value: '',
       mode: 'javascript',
@@ -28,10 +26,10 @@ export default class Editor {
       // When the editor is ready, set the value to whatever is stored in indexeddb.
       .then(data => {
         console.info('Loaded data from IndexedDB, injecting into editor');
+        // Fall back to localStorage if nothing is stored in IndexedDB, and if neither is available, set the value to header.
         this.editor.setValue(data || localData || header);
       })
-      // Fall back to localStorage if nothing is stored in IndexedDB, and if neither is available, set the value to header.
-      .catch(() => this.editor.setValue(localData || header));
+      .catch((err) => console.error(err))
 
     // Save the content of the editor to localStorage when the editor changes
     this.editor.on('change', () => localStorage.setItem('content', this.editor.getValue()));

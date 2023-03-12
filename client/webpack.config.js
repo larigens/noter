@@ -9,10 +9,7 @@ module.exports = () => {
     mode: 'development',
     entry: {
       main: './src/js/index.js',
-      install: './src/js/install.js',
-      database: './src/js/database.js',
-      editor: './src/js/editor.js',
-      header: './src/js/header.js'
+      install: './src/js/install.js'
     },
     output: {
       filename: '[name].bundle.js',
@@ -22,7 +19,6 @@ module.exports = () => {
       // Generates an HTML file that includes a script tag for the main bundle.
       new HtmlWebpackPlugin({
         title: 'Noter',
-        offline: 'Noter - Offline',
         template: './index.html',
       }),
       // Adds a service worker to the build using a source and destination file.
@@ -35,7 +31,6 @@ module.exports = () => {
       // Is used to generate a PWA manifest file.
       new WebpackPwaManifest({
         // filename specifies the output filename for the generated manifest file. Default: 'manifest.json'.
-        // inject - manifest should be automatically injected into the HTML file(s) generated. Default: 'true'.
         fingerprints: false, // A unique hash is generated based on the file's contents - set to false to not do that.
         inject: true,
         name: 'Noter',

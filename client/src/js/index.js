@@ -27,15 +27,8 @@ if (typeof editor === 'undefined') {
 
 // Checks if service workers are supported.
 if ('serviceWorker' in navigator) {
-  // Use the window load event to keep the page load performant
-  window.addEventListener('load', () => {
-    new Workbox('/src-sw.js').register() // Register workbox service worker.
-      .then(() => {
-        console.log('Service worker registered successfully!');
-      })
-      .catch((error) => {
-        console.error('Service worker registration failed:', error); // If not supported, logs an error message.
-      });
-  })
+  const workboxSW = new Workbox('/src-sw.js');
+  workboxSW.register(); // Register workbox service worker.
+} else {
+  console.error('Service workers are not supported in this browser.'); // If not supported, logs an error message.
 }
-

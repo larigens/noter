@@ -15,29 +15,30 @@ const initdb = async () =>
     },
   });
 
-// Create a connection to the database database and version we want to use.
-const noterDb = openDB(DB_NAME, 1);
 
 // Export a function we will use to PUT to the database.
 export const putDb = async (content) => {
-  try {
-    // Create a new transaction and specify the database and data privileges.
-    const tx = noterDb.transaction(DB_NAME, 'readwrite');
-    // Open up the desired object store and use the .put() method on the store and pass in the content.
-    const request = await tx.objectStore(DB_NAME).put(content);
-    console.log(`🚀 data saved to the database`, request);
-  } catch (err) { console.error(err) }
+  // Create a connection to the database database and version we want to use.
+  const noterDb = await openDB(DB_NAME, 1);
+  // Create a new transaction and specify the database and data privileges.
+  const tx = noterDb.transaction(DB_NAME, 'readwrite');
+  // Open up the desired object store 
+  const store = tx.objectStore(DB_NAME);
+  // Use the .put() method on the store and pass in the content.
+  const request = store.put(content);
+  const result = await request;
+  console.log(`🚀 data saved to the database`, result);
 };
 
 // Export a function we will use to GET all from the database.
 export const getDb = async () => {
-  try {
-    // Create a new transaction and specify the database and data privileges.
-    const tx = noterDb.transaction(DB_NAME, 'readonly');
-    // Open up the desired object store and use the .getAll() method on the store and pass in the content.
-    const request = await tx.objectStore(DB_NAME).getAll();
-    console.log(`🚀`, request);
-  } catch (err) { console.error(err) }
+  const noterDb = await openDB(DB_NAME, 1);
+  const tx = noterDb.transaction(DB_NAME, 'readonly');
+  const store = tx.objectStore(DB_NAME);
+  // Use the .getAll() method on the store and pass in the content.
+  const request = store.getAll();
+  const result = await request;
+  console.log(`🚀`, result);
 };
 
 // Call our database function.
