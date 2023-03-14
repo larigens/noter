@@ -35,9 +35,9 @@ export default class {
     this.editor.on('change', () => localStorage.setItem('content', this.editor.getValue()));
 
     // Save the content of the editor to IndexedDB when the editor loses focus
-    this.editor.on('blur', () => {
+    this.editor.on('blur', async () => {
       console.log('The editor has lost focus');
-      putDb(localData);
+      await putDb(localData);
     });
   }
 }
