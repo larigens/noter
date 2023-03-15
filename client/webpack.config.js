@@ -9,7 +9,9 @@ module.exports = () => {
     mode: 'development',
     entry: {
       main: './src/js/index.js',
-      install: './src/js/install.js'
+      install: './src/js/install.js',
+      database: './src/js/database.js',
+      editor: './src/js/editor.js'
     },
     output: {
       filename: '[name].bundle.js',
@@ -23,14 +25,13 @@ module.exports = () => {
       }),
       // Adds a service worker to the build using a source and destination file.
       new InjectManifest({
-        swSrc: './src-sw.js', // Source file.
-        swDest: 'src-sw.js', // Output file for the service worker.
+        swSrc: './sw.js', // Source file.
+        swDest: 'service-worker.js', // Output file for the service worker.
         // Specifies which files should be included in the service worker cache.
         include: [/\.html$/, /\.js$/, /\.css$/, /\.png$/, /\.svg$/, /\.jpg$/, /\.jpeg$/, /\.gif$/]
       }),
       // Is used to generate a PWA manifest file.
       new WebpackPwaManifest({
-        // filename specifies the output filename for the generated manifest file. Default: 'manifest.json'.
         fingerprints: false, // A unique hash is generated based on the file's contents - set to false to not do that.
         inject: true,
         name: 'Noter - The coders notepad',

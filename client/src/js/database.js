@@ -8,7 +8,7 @@ const initdb = async () =>
         console.log('noter database already exists');
         return;
       } // Creates an object store for our data inside of the 'noter'.
-      db.createObjectStore('noter', { keyPath: 'id', autoIncrement: true }); // Creates a key named 'id' which will automatically be incremented.
+      db.createObjectStore('noter', { keyPath: 'id' }); // Creates a key named 'id'.
       console.log('noter database created');
     },
   });
@@ -18,8 +18,8 @@ export const putDb = async (content) => {
   const noterDB = await openDB("noter", 1);   // Create a connection to the database database and version we want to use.
   const tx = noterDB.transaction("noter", "readwrite");   // Create a new transaction and specify the database and data privileges.
   const store = tx.objectStore("noter");   // Open up the desired object store 
-  const request = store.put({ noter: content });   // Use the .put() method on the store and pass in the content.
-  const result = await request;
+  const request = store.put({ id: 1, noter: content });   // Use the .put() method on the store and pass in the content. 
+  const result = await request; // Since it is the same large notepad, which will be constantly updated, I gave the id=1, so that it would not create multiple ids for multiple updates.
   console.log("Data saved to the database", result);
 };
 
@@ -35,3 +35,4 @@ export const getDb = async () => {
 
 // Call our database function.
 initdb();
+

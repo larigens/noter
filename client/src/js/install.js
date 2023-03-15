@@ -30,8 +30,3 @@ window.addEventListener('appinstalled', (event) => {
     btnInstall.setAttribute('disabled', true); // Disables the install button.
     console.log('App was installed:', event);
 });
-
-// Hide the install button if the PWA is already installed.
-if (window.matchMedia('(display-mode: standalone)').matches) { // Checks if the current page is running as a standalone web app (running outside of a browser).
-    btnInstall.setAttribute('disabled', true); // Disable the install button.
-}

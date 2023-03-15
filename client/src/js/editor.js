@@ -2,7 +2,7 @@
 import { getDb, putDb } from './database';
 import { header } from './header';
 
-export default class {
+export default class Editor {
   constructor() {
     const localData = localStorage.getItem('content');
 
@@ -34,10 +34,9 @@ export default class {
     // Save the content of the editor to localStorage when the editor changes
     this.editor.on('change', () => localStorage.setItem('content', this.editor.getValue()));
 
-    // Save the content of the editor to IndexedDB when the editor loses focus
+    // Save the content of the editor to IndexedDB when the editor loses focus.
     this.editor.on('blur', async () => {
-      console.log('The editor has lost focus');
-      await putDb(localData);
+      putDb(localData);
     });
   }
 }

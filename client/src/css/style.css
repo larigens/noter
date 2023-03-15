@@ -71,6 +71,12 @@ h1 {
   height: calc(100vh - var(--navbar-height));
 }
 
+@media (display-mode: browser) {
+  #installInstructions {
+    display: block
+  }
+}
+
 @keyframes rotate-forever {
   0% {
     transform: rotate(0deg);
