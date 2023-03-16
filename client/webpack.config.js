@@ -44,8 +44,9 @@ module.exports = () => {
         icons: [ // icon to be generated.
           {
             src: path.resolve('src/images/logo.png'), // The path to the image.
-            sizes: [96, 128, 192, 512], // Sizes of the icon.
+            sizes: [96, 128, 144, 180, 192, 256, 512, 1024], // Sizes of the icon.
             type: 'image/png',
+            ios: true,
             destination: path.join('assets', 'icons'), // The destination directory where the generated icons will be saved.
           },
         ]

@@ -5,7 +5,6 @@ import { CacheFirst } from 'workbox-strategies';
 import { warmStrategyCache, staticResourceCache, pageCache } from 'workbox-recipes';
 
 const PAGE_CACHE = 'page-cache-v1';
-// const ASSET_CACHE = 'asset-cache-v1';
 const MAX_AGE_SECONDS = 30 * 24 * 60 * 60; // Expires in 30d.
 
 // Contains a list of URLs to precache during the service worker's installation phase.
