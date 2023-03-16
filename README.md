@@ -63,19 +63,33 @@ Once you run this, npm will begin the installation process of all of the current
 
 ## Mock-Up
 
-The following images are an illustration of the project.
+The following image shows the application's appearance:
 
-<!-- Add screenshots -->
+![Terminal code](/assets/page.png)
+
+The following image shows the application's manifest.json file:
+
+The following image shows the application's registered service worker:
+
+The following image shows the application's IndexedDB storage:
 
 ## Usage
 
 Launch the application by entering the command below on your terminal:
 
 ```bash
-npm run start:dev
+npm run start
 ```
 
-<!-- Talk more about usage and installing the app -->
+Afterward, a similar output should appear in your terminal:
+
+![Terminal code](/assets/terminal-code.png)
+
+At this point, the Service Worker ought to be registered within the scope, enabling access to **Noter** through the following URL: http://localhost:3000/
+
+However, if you happen to access the application via its official website, you can effortlessly proceed to the enjoyable part and create any content you desire, without the need for an internet connection.
+
+Furthermore, **Noter** offers the option to install the application on your device. To proceed with the installation, click on the "install" button located in the upper left-hand corner of the screen, and immerse yourself in the experience!
 
 ## Questions
 
@@ -112,6 +126,7 @@ Our Code of Conduct follows the same principles as the [Contributor Covenant](ht
 - [Webpack](https://webpack.js.org/concepts/)
 - [Workbox](https://developer.chrome.com/docs/workbox/)
 - [Manifest.json](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json)
+- [How to Deploy Vue PWA on Heroku](https://dev.to/mungaigikure/deploy-vue-pwa-on-heroku-11o2)
 
 ### Links
 

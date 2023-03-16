@@ -2,7 +2,7 @@ import { precacheAndRoute } from 'workbox-precaching';
 import { CacheableResponsePlugin } from 'workbox-cacheable-response';
 import { ExpirationPlugin } from 'workbox-expiration';
 import { CacheFirst } from 'workbox-strategies';
-import { warmStrategyCache, staticResourceCache, pageCache } from 'workbox-recipes';
+import { warmStrategyCache, staticResourceCache, pageCache, imageCache } from 'workbox-recipes';
 
 const PAGE_CACHE = 'page-cache-v1';
 const MAX_AGE_SECONDS = 30 * 24 * 60 * 60; // Expires in 30d.

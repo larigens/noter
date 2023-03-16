@@ -7,25 +7,31 @@
   <title>
     <%= htmlWebpackPlugin.options.title %>
   </title>
-  <link  rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/codemirror.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/codemirror.min.css">
   </link>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/codemirror.min.js">
   </script>
-  <script  type="text/javascript"
+  <script type="text/javascript"
     src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/mode/javascript/javascript.min.js">
     </script>
-  <link  rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/theme/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/theme/monokai.min.css">
   </link>
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon/icon_64x64.ico">
 </head>
 
 <body>
-  <nav id="navbar">
-    <div class="nav-btn">
-      <a class="btn btn-sm btn-dark" id="buttonInstall" role="button"> Install! </a>
-    </div>
-    <h1> Noter - The coder's notepad </h1>
-    <div class="navbar-brand"><img src="./assets/icons/icon_96x96.png" /></div>
-  </nav>
+  <header>
+    <nav id="navbar">
+      <div class="nav-btn">
+        <a class="btn btn-sm" id="buttonInstall" role="button"> Install! </a>
+      </div>
+      <div clas="title">
+        <h1> Noter </h1>
+        <p> The coder's notepad </p>
+      </div>
+      <div class="navbar-brand"><img src="./assets/icons/icon_96x96.png" /></div>
+    </nav>
+  </header>
   <main id="main">
     <div class="loading-container">
       <div class="loading-spinner"></div>

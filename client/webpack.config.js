@@ -28,7 +28,7 @@ module.exports = () => {
         swSrc: './sw.js', // Source file.
         swDest: 'service-worker.js', // Output file for the service worker.
         // Specifies which files should be included in the service worker cache.
-        include: [/\.html$/, /\.js$/, /\.css$/, /\.png$/, /\.svg$/, /\.jpg$/, /\.jpeg$/, /\.gif$/]
+        include: [/\.html$/, /\.js$/, /\.css$/, /\.png$/, /\.svg$/, /\.jpg$/, /\.jpeg$/, /\.gif$/, /\.ico$/]
       }),
       // Is used to generate a PWA manifest file.
       new WebpackPwaManifest({
@@ -44,10 +44,17 @@ module.exports = () => {
         icons: [ // icon to be generated.
           {
             src: path.resolve('src/images/logo.png'), // The path to the image.
-            sizes: [96, 128, 144, 180, 192, 256, 512, 1024], // Sizes of the icon.
+            sizes: [96, 128, 144, 180, 192, 256, 512], // Sizes of the icon.
             type: 'image/png',
             ios: true,
             destination: path.join('assets', 'icons'), // The destination directory where the generated icons will be saved.
+          },
+          {
+            src: path.resolve('./favicon.ico'), // The path to the favicon.
+            sizes: [64], // Sizes of the favicon.
+            type: 'x-icon',
+            ios: true,
+            destination: path.join('assets', 'favicon'), // The destination directory where the generated icons will be saved.
           },
         ]
       }),
