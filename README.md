@@ -136,7 +136,7 @@ Our Code of Conduct follows the same principles as the [Contributor Covenant](ht
 - [Webpack](https://webpack.js.org/concepts/)
 - [Workbox](https://developer.chrome.com/docs/workbox/)
 - [Manifest.json](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json)
-- [How to Deploy Vue PWA on Heroku](https://dev.to/mungaigikure/deploy-vue-pwa-on-heroku-11o2)
+- [Deploy your Webpack apps to Heroku in 3 simple steps](https://codeburst.io/deploy-your-webpack-apps-to-heroku-in-3-simple-steps-4ae072af93a8)
 
 ### Links
 
