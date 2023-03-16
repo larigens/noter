@@ -27,18 +27,16 @@ header {
 }
 
 h1 {
-  padding-left: 1.8rem;
-  font-size: 40px;
-  letter-spacing: 22px;
+  font-size: 46px;
+  letter-spacing: 26px;
 }
 
 p {
-  font-size: 22px;
+  font-size: 20px;
 }
 
 #navbar {
   background-color: var(--primary);
-  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -50,7 +48,7 @@ p {
 
 .navbar-brand img {
   padding-top: 10px;
-  padding-right: 15px;
+  padding-right: 19px;
 }
 
 .loading-spinner {
@@ -69,7 +67,6 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: calc(100vh - var(--header-height));
 }
 
 @keyframes rotate-forever {
@@ -99,23 +96,21 @@ p {
 .btn {
   text-align: center;
   display: inline-block;
-  padding: 0.8rem 1.2rem;
-  margin: 0 0 10px 10px;
+  padding: 0.8rem;
   text-decoration: none;
   font-size: 1.25rem;
   border-radius: 0.3rem;
   border: 1px solid transparent;
   outline: none;
-  color: #cecece;
+  color: #ffff;
   background-color: var(--primary);
   transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
-  box-shadow: 0px 10px 15px var(--whitesmoke);
-  font-weight: bold;
+  box-shadow: 0px 7px 10px var(--whitesmoke);
 }
 
 .btn:hover {
-  background-color: #cecece;
-  color: var(--dark);
+  background-color: var(--whitesmoke);
+  color: var(--primary);
   cursor: pointer;
 }
 

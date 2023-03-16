@@ -63,15 +63,21 @@ Once you run this, npm will begin the installation process of all of the current
 
 ## Mock-Up
 
-The following image shows the application's appearance:
+The following animation demonstrates the application functionality:
 
-![Terminal code](/assets/page.png)
+![Noter](/assets/Noter.gif)
 
 The following image shows the application's manifest.json file:
 
+![manifest.json file](/assets/manifest.png)
+
 The following image shows the application's registered service worker:
 
+![Registered service worker](/assets/service-worker.png)
+
 The following image shows the application's IndexedDB storage:
+
+![ndexedDB storage](/assets/indexed-db.png)
 
 ## Usage
 
@@ -85,7 +91,11 @@ Afterward, a similar output should appear in your terminal:
 
 ![Terminal code](/assets/terminal-code.png)
 
-At this point, the Service Worker ought to be registered within the scope, enabling access to **Noter** through the following URL: http://localhost:3000/
+After bundling the files, a newly created folder named `dist` should be visible to you.
+
+![dist folder](/assets/client-dist.png)
+
+At this point, the Service Worker ought to be registered within the scope, enabling access to **Noter** through the following URL: http://localhost:3001/. 
 
 However, if you happen to access the application via its official website, you can effortlessly proceed to the enjoyable part and create any content you desire, without the need for an internet connection.
 
