@@ -7,6 +7,12 @@
     <br> Progressive Web Application (PWA) </i>
   <br>
 </p>
+
+<p align="center">
+  <a href="https://noter-coder.herokuapp.com/"><strong> Noter Official Site </strong></a>
+  <br>
+</p>
+
 <br>
 
 <div align="center">
@@ -26,7 +32,6 @@ Noter is a user-friendly and reliable text editor designed for coders. With Note
 ## Table of Contents
 
 - [Description](#description)
-- [Table of Contents](#table-of-contents)
 - [Installation](#installation)
   - [Cloning the Repository](#cloning-the-repository)
   - [Setting Up](#setting-up)
