@@ -70,7 +70,7 @@ Once you run this, npm will begin the installation process of all of the current
 
 The following animation demonstrates the application functionality:
 
-![Noter](/assets/Noter.gif)
+<img src="/assets/Noter.gif" alt="noter" width="700px" />
 
 The following image shows the application's manifest.json file:
 
